@@ -18,9 +18,7 @@ body {
 }
 
 .inputbox{
-    display:flex;
-    
-    
+    display:flex;   
 }
 .input{
     height:35px;
@@ -32,7 +30,7 @@ body {
     height:41px;
     width:53px;
     background-color: #ebf5fc;
-     box-shadow: -2px -2px 5px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: -2px -2px 5px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
     text-align:center ;
     line-height:41px;
     color:#000;
@@ -44,13 +42,10 @@ body {
     text-align:center ;
     margin-top:40px;
 }
-.confirmbox{
-
-}
 .box{
     height:200px;
     background-color: #ebf5fc;
-     box-shadow: -2px -2px 5px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: -2px -2px 5px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
     width:60vw;
     position:re8ative  ;
     margin-top:40px;
@@ -65,7 +60,7 @@ body {
     margin-bottom: 20px;
 }
 .title{
-    font-size:30px;
+    font-size:35px;
     margin-top:20px;
 }
 .count{
