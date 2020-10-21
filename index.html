@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Covid 19 tracker</title>
-        <script src="script.js"></script>
-        <link rel="stylesheet" href="style.css">
+  <head>
+    <title>Covid 19 tracker</title>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
 
-<link href='https://fonts.googleapis.com/css?family=Aguafina Script|Akronim|Aldrich|Iceberg' rel='stylesheet'>
-    </head>
-    <body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Aguafina Script|Akronim|Aldrich|Iceberg"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="con">
-    
-        <h1>Covid 19 Tracker Live</h1>
-    
-    
-        <div class="inputbox">
-   <input type="text" class="input" placeholder="Enter country name..."/>
+      <h1>Covid 19 Tracker Live</h1>
 
-  <div class="button">search</div> 
+      <div class="inputbox">
+        <input type="text" class="input" placeholder="Enter country name..." />
+
+        <div class="button">search</div>
+      </div>
+
+      <div class="tit"><div class="title">Country</div></div>
+      <div class="a">
+        <div class="confirmbox box">
+          <div class="title">Confirmed Cases</div>
+
+          <div class="count confirm">000000</div>
+        </div>
+
+        <div class="activebox box">
+          <div class="title">Active Cases</div>
+
+          <div class="count active">000000</div>
+        </div>
+
+        <div class="deathbox box">
+          <div class="title">Deaths</div>
+
+          <div class="count death">000000</div>
+        </div>
+
+        <div class="recoverbox box">
+          <div class="title">Recovered</div>
+
+          <div class="count recover">000000</div>
+        </div>
+      </div>
     </div>
-   
+    <footer>&copy Atul 2020 All Rights Reserved</footer>
+    <script>
+      const button = document.querySelector(".button");
+      button.addEventListener("click", getdata);
 
-  <div class="tit"><div class="title">Country</div></div>
-  <div class="a">
-  <div class="confirmbox box">
-   <div class="title">Confirmed Cases</div>
- 
-      <div class="count confirm">000000</div>
-  </div>
- 
-  <div class="activebox box">
-   <div class="title">Active Cases</div>
- 
-      <div class="count active">000000</div>
-  </div>
-  
-  <div class="deathbox box">
-   <div class="title">Deaths</div>
- 
-      <div class="count death">000000</div>
-  </div>
-  
-  <div class="recoverbox box">
-   <div class="title">Recovered</div>
- 
-      <div class="count recover">000000</div>
-  </div>
-</div>
-    </div>
-    <footer>
-        &copy Atul 2020 All Rights Reserved
-    </footer>
-        <script>
-var button = document.querySelector(".button");
-button.addEventListener('click',getdata);
-
- async function getdata(){
- 
-var input = document.querySelector(".input");
-var confirm = document.querySelector(".confirm");
-var active = document.querySelector(".active");
-var death = document.querySelector(".death");
-var recover = document.querySelector(".recover");
-var title = document.querySelector(".title")
-var country = input.value;
-if(country == ""){
-    alert("Pls input correct value")
-}
-try{
-const res = await fetch('https://covid19.mathdro.id/api/countries/'+ country)
-    const data = await res.json()
-    //console.log(JSON.stringify(data))
-    confirm.innerHTML = data.confirmed.value;
-    death.innerHTML = data.deaths.value;
-    recover.innerHTML = data.recovered.value;
-active.innerHTML = parseInt(data.confirmed.value-(data.recovered.value + data.deaths.value));
-title.innerHTML = input.value.toUpperCase();;
-input.value = "";
-}
-catch(e){
-    alert("Country not found")
-    input.value ="";
-}
-    //alert(data.error.message)
-    }
-        </script>
-    </body>
+      async function getdata() {
+        const input = document.querySelector(".input");
+        const confirm = document.querySelector(".confirm");
+        const active = document.querySelector(".active");
+        const death = document.querySelector(".death");
+        const recover = document.querySelector(".recover");
+        const title = document.querySelector(".title");
+        const country = input.value;
+        if (country == "") {
+          alert("Pls input correct value");
+        }
+        try {
+          const res = await fetch(
+            "https://covid19.mathdro.id/api/countries/" + country
+          );
+          const data = await res.json();
+          //console.log(JSON.stringify(data))
+          confirm.innerHTML = data.confirmed.value;
+          death.innerHTML = data.deaths.value;
+          recover.innerHTML = data.recovered.value;
+          active.innerHTML = parseInt(
+            data.confirmed.value - (data.recovered.value + data.deaths.value)
+          );
+          title.innerHTML = input.value.toUpperCase();
+          input.value = "";
+        } catch (e) {
+          alert("Country not found");
+          input.value = "";
+        }
+        //alert(data.error.message)
+      }
+    </script>
+  </body>
 </html>
